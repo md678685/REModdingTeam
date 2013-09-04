@@ -2,6 +2,7 @@ package RE.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+import RE.tileentities.TileEntityBatteryCharger;
 import RE.tileentities.TileEntityGenerator;
 import RE.tileentities.TileEntitySolarPanel;
 import RE.tileentities.TileEntityWire;
@@ -13,27 +14,32 @@ public class Blocks {
 	public static Block generator;
 	public static Block solarPanel;
 	public static Block wire;
+	public static Block batteryCharger;
 
 	public static void init() {
 		generator = new BlockGenerator(BlockInfo.GENERATOR_ID);
 		solarPanel = new BlockSolarPanel(BlockInfo.SOLARPANEL_ID);
 		wire = new BlockWire(BlockInfo.WIRE_ID);
+		batteryCharger = new BlockBatteryCharger(BlockInfo.BATTERYCHARGER_ID);
 
 		GameRegistry.registerBlock(generator, BlockInfo.GENERATOR_KEY);
 		GameRegistry.registerBlock(solarPanel, BlockInfo.SOLARPANEL_KEY);
 		GameRegistry.registerBlock(wire, BlockInfo.WIRE_KEY);
+		GameRegistry.registerBlock(batteryCharger, BlockInfo.BATTERYCHARGER_KEY);
 	}
 
 	public static void addNames() {
 		LanguageRegistry.addName(generator, BlockInfo.GENERATOR_NAME);
 		LanguageRegistry.addName(solarPanel, BlockInfo.SOLARPANEL_NAME);
 		LanguageRegistry.addName(wire, BlockInfo.WIRE_NAME);
+		LanguageRegistry.addName(batteryCharger, BlockInfo.BATTERYCHARGER_NAME);
 	}
 
 	public static void registerTileEntities() {
 		GameRegistry.registerTileEntity(TileEntityGenerator.class, BlockInfo.GENERATOR_TE_KEY);
 		GameRegistry.registerTileEntity(TileEntitySolarPanel.class, BlockInfo.SOLARPANEL_TE_KEY);
 		GameRegistry.registerTileEntity(TileEntityWire.class, BlockInfo.WIRE_TE_KEY);
+		GameRegistry.registerTileEntity(TileEntityBatteryCharger.class, BlockInfo.BATTERYCHARGER_TE_KEY);
 	}
 
 	public static void registerRecipes() {

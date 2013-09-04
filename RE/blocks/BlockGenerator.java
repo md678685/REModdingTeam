@@ -70,7 +70,7 @@ public class BlockGenerator extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private Icon frontOnIcon;
 	@SideOnly(Side.CLIENT)
-	private Icon Icon;
+	private Icon topIcon;
 	@SideOnly(Side.CLIENT)
 	private Icon sideIcon;
 	@SideOnly(Side.CLIENT)
@@ -81,7 +81,7 @@ public class BlockGenerator extends BlockContainer {
 	public void registerIcons(IconRegister register) {
 		frontOffIcon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.GENERATOR_FRONT_OFF_ICON);
 		frontOnIcon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.GENERATOR_FRONT_ON_ICON);
-		Icon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.MACHINE_TOP_ICON);
+		topIcon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.MACHINE_TOP_ICON);
 		sideIcon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.MACHINE_SIDE_ICON);
 		wireSideIcon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.WIRE_ATTACHMENT_ICON);
 	}
@@ -98,9 +98,9 @@ public class BlockGenerator extends BlockContainer {
 		}
 
 		if (side == 0) { // Bottom
-			return Icon;
+			return topIcon;
 		} else if (side == 1) { // Top
-			return Icon;
+			return topIcon;
 		}
 
 		return wireSideIcon;

@@ -20,6 +20,7 @@ public class ConfigHandler {
 		BlockInfo.GENERATOR_ID = config.getBlock(BlockInfo.GENERATOR_KEY, BlockInfo.GENERATOR_DEFAULT).getInt();
 		BlockInfo.SOLARPANEL_ID = config.getBlock(BlockInfo.SOLARPANEL_KEY, BlockInfo.SOLARPANEL_DEFAULT).getInt();
 		BlockInfo.WIRE_ID = config.getBlock(BlockInfo.WIRE_KEY, BlockInfo.WIRE_DEFAULT).getInt();
+		BlockInfo.BATTERYCHARGER_ID = config.getBlock(BlockInfo.BATTERYCHARGER_KEY, BlockInfo.BATTERYCHARGER_DEFAULT).getInt();
 
 		config.save();
 	}

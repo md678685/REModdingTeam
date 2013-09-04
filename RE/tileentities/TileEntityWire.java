@@ -9,7 +9,7 @@ import RE.routing.RoutingDestination;
 public class TileEntityWire extends TileEntity {
 
 	boolean[] sides = new boolean[6];
-	int[] wireConnect = { BlockInfo.WIRE_ID, BlockInfo.GENERATOR_ID, BlockInfo.SOLARPANEL_ID };
+	int[] wireConnect = { BlockInfo.WIRE_ID, BlockInfo.GENERATOR_ID, BlockInfo.SOLARPANEL_ID, BlockInfo.BATTERYCHARGER_ID };
 	RoutingDestination routing = new RoutingDestination();
 
 	// Routing Table:
