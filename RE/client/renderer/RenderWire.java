@@ -84,7 +84,7 @@ public class RenderWire implements ISimpleBlockRenderingHandler {
 		if (te != null) {
 			boolean[] sides = ((TileEntityWire) te).getSides();
 
-			System.out.println("sides: " + sides[0]);
+			//System.out.println("sides: " + sides[0]);
 
 			if (sides[0]) { // Bottom
 				startY = 0F;
