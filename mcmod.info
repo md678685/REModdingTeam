@@ -1,0 +1,20 @@
+[
+{
+    "modid" : "RealElectricity",
+    "name" : "Real Electricity",
+    "version" : "0.0.0",
+    "credits" : "Real Electricity Team & Vswe's Summer Courses",
+    "authors": [
+        "Matjer",
+		"Larethian",
+		"MD678685"
+    ],
+    "description" : "Make electricity work in Minecraft!",
+    "url" : "",
+    "updateUrl" : "",
+    "logoFile" : "",
+    "parent" : "",
+    "screenshots": [
+    ]
+}
+]
