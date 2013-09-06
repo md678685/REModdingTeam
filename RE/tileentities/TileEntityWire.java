@@ -27,7 +27,7 @@ public class TileEntityWire extends TileEntity implements Wire {
 	// Destination: Coords, Resistance, Requests
 
 	public TileEntityWire() {
-		routingEntries = new HashMap<Destination,RoutingEntry>();
+		this.routingEntries = new HashMap<Destination,RoutingEntry>();
 	}
 
 	
@@ -35,9 +35,9 @@ public class TileEntityWire extends TileEntity implements Wire {
 	@Override
 	public void updateEntity() {
 
-		if (!worldObj.isRemote) {
-			if(!initDone){
-				init(); initDone = true;	//Just to initialize the routingtable
+		if (!this.worldObj.isRemote) {
+			if(!this.initDone){
+				init(); this.initDone = true;	//Just to initialize the routingtable
 			}
 			
 			boolean[] side = new boolean[6];
@@ -46,33 +46,33 @@ public class TileEntityWire extends TileEntity implements Wire {
 				side[i] = false;
 			}
 
-			for (int i = 0; i < wireConnect.length; i++) {
-				if (worldObj.getBlockId(xCoord, yCoord - 1, zCoord) == wireConnect[i]) {
+			for (int i = 0; i < this.wireConnect.length; i++) {
+				if (this.worldObj.getBlockId(this.xCoord, this.yCoord - 1, this.zCoord) == this.wireConnect[i]) {
 					// Bottom
 					side[0] = true;
 				}
 
-				if (worldObj.getBlockId(xCoord, yCoord + 1, zCoord) == wireConnect[i]) {
+				if (this.worldObj.getBlockId(this.xCoord, this.yCoord + 1, this.zCoord) == this.wireConnect[i]) {
 					// Top
 					side[1] = true;
 				}
 
-				if (worldObj.getBlockId(xCoord, yCoord, zCoord - 1) == wireConnect[i]) {
+				if (this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord - 1) == this.wireConnect[i]) {
 					// Back
 					side[2] = true;
 				}
 
-				if (worldObj.getBlockId(xCoord, yCoord, zCoord + 1) == wireConnect[i]) {
+				if (this.worldObj.getBlockId(this.xCoord, this.yCoord, this.zCoord + 1) == this.wireConnect[i]) {
 					// Front
 					side[3] = true;
 				}
 
-				if (worldObj.getBlockId(xCoord - 1, yCoord, zCoord) == wireConnect[i]) {
+				if (this.worldObj.getBlockId(this.xCoord - 1, this.yCoord, this.zCoord) == this.wireConnect[i]) {
 					// Left
 					side[4] = true;
 				}
 
-				if (worldObj.getBlockId(xCoord + 1, yCoord, zCoord) == wireConnect[i]) {
+				if (this.worldObj.getBlockId(this.xCoord + 1, this.yCoord, this.zCoord) == this.wireConnect[i]) {
 					// Right
 					side[5] = true;
 				}
@@ -80,55 +80,55 @@ public class TileEntityWire extends TileEntity implements Wire {
 
 			if (side[0]) {
 				// Bottom
-				PacketHandler.sendSidePacket(true, 0, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(true, 0, this.xCoord, this.yCoord, this.zCoord);
 			} else {
-				PacketHandler.sendSidePacket(false, 0, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(false, 0, this.xCoord, this.yCoord, this.zCoord);
 			}
 
 			if (side[1]) {
 				// Top
-				PacketHandler.sendSidePacket(true, 1, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(true, 1, this.xCoord, this.yCoord, this.zCoord);
 			} else {
-				PacketHandler.sendSidePacket(false, 1, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(false, 1, this.xCoord, this.yCoord, this.zCoord);
 			}
 
 			if (side[2]) {
 				// Back
-				PacketHandler.sendSidePacket(true, 2, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(true, 2, this.xCoord, this.yCoord, this.zCoord);
 			} else {
-				PacketHandler.sendSidePacket(false, 2, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(false, 2, this.xCoord, this.yCoord, this.zCoord);
 			}
 
 			if (side[3]) {
 				// Front
-				PacketHandler.sendSidePacket(true, 3, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(true, 3, this.xCoord, this.yCoord, this.zCoord);
 			} else {
-				PacketHandler.sendSidePacket(false, 3, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(false, 3, this.xCoord, this.yCoord, this.zCoord);
 			}
 
 			if (side[4]) {
 				// Left
-				PacketHandler.sendSidePacket(true, 4, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(true, 4, this.xCoord, this.yCoord, this.zCoord);
 			} else {
-				PacketHandler.sendSidePacket(false, 4, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(false, 4, this.xCoord, this.yCoord, this.zCoord);
 			}
 
 			if (side[5]) {
 				// Right
-				PacketHandler.sendSidePacket(true, 5, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(true, 5, this.xCoord, this.yCoord, this.zCoord);
 			} else {
-				PacketHandler.sendSidePacket(false, 5, xCoord, yCoord, zCoord);
+				PacketHandler.sendSidePacket(false, 5, this.xCoord, this.yCoord, this.zCoord);
 			}
 		}
 	}
 
 	public boolean[] getSides() {
-		return sides;
+		return this.sides;
 	}
 
 	public void setSide(boolean state, int side) {
-		sides[side] = state;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		this.sides[side] = state;
+		this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
 	}
 
 	@Override
@@ -153,9 +153,9 @@ public class TileEntityWire extends TileEntity implements Wire {
 	 * @param propagate Whether the change should be propagated to the neighbors. 
 	 */
 	private void updateRoutingEntry(Direction sideIncoming, RoutingEntry entry, boolean propagate) {
-		if(routingEntries.containsKey(entry.getDest()))
+		if(this.routingEntries.containsKey(entry.getDest()))
 		{
-			RoutingEntry re = routingEntries.get(entry.getDest());
+			RoutingEntry re = this.routingEntries.get(entry.getDest());
 			
 			if(re.getTravelCost() <= entry.getTravelCost()){
 				
@@ -163,8 +163,8 @@ public class TileEntityWire extends TileEntity implements Wire {
 				
 				if(re.getRequested() != entry.getRequested()){
 					//requested amount changed
-					routingEntries.put(re.getDest(), new RoutingEntry(re.getDest(), re.getTravelCost(), re.getNextHop(), entry.getRequested()));
-					if(propagate)propagate(sideIncoming, routingEntries.get(re.getDest()));
+					this.routingEntries.put(re.getDest(), new RoutingEntry(re.getDest(), re.getTravelCost(), re.getNextHop(), entry.getRequested()));
+					if(propagate)propagate(sideIncoming, this.routingEntries.get(re.getDest()));
 				}
 				else{
 					//do nothing, as it wouldnt change anything anyway -Larethian
@@ -173,14 +173,14 @@ public class TileEntityWire extends TileEntity implements Wire {
 			else
 			{
 				//Reduction in travelcost detected -Larethian
-				routingEntries.put(entry.getDest(), new RoutingEntry(entry.getDest(), entry.getTravelCost()+this.getResistance(), sideIncoming, entry.getRequested()));
-				if(propagate)propagate(sideIncoming, routingEntries.get(entry.getDest()));
+				this.routingEntries.put(entry.getDest(), new RoutingEntry(entry.getDest(), entry.getTravelCost()+this.getResistance(), sideIncoming, entry.getRequested()));
+				if(propagate)propagate(sideIncoming, this.routingEntries.get(entry.getDest()));
 			}
 		}
 		else
 		{
-			routingEntries.put(entry.getDest(), new RoutingEntry(entry.getDest(), entry.getTravelCost()+this.getResistance(), sideIncoming, entry.getRequested()));
-			if(propagate)propagate(sideIncoming, routingEntries.get(entry.getDest()));
+			this.routingEntries.put(entry.getDest(), new RoutingEntry(entry.getDest(), entry.getTravelCost()+this.getResistance(), sideIncoming, entry.getRequested()));
+			if(propagate)propagate(sideIncoming, this.routingEntries.get(entry.getDest()));
 		}
 	}
 	
@@ -188,7 +188,7 @@ public class TileEntityWire extends TileEntity implements Wire {
 		for (Direction dir : Direction.values()) {
 			if(dir != sideIncoming)//this is to prevent that two nodes bounce update-messages forth and back accidently -Larethian
 			{
-				TileEntity te = worldObj.getBlockTileEntity(this.xCoord+dir.xOffset, this.yCoord+dir.yOffset, this.zCoord+dir.zOffset); 
+				TileEntity te = this.worldObj.getBlockTileEntity(this.xCoord+dir.xOffset, this.yCoord+dir.yOffset, this.zCoord+dir.zOffset); 
 				
 				if(te instanceof Wire){
 					((Wire) te).updateRoutingEntry(sideIncoming.getOpposite(), entry);
@@ -199,7 +199,7 @@ public class TileEntityWire extends TileEntity implements Wire {
 
 	@Override
 	public Map<Destination, RoutingEntry> getRoutingEntrys() {
-		return routingEntries;
+		return this.routingEntries;
 	}
 
 	@Override
@@ -209,11 +209,9 @@ public class TileEntityWire extends TileEntity implements Wire {
 	
 	@Override
 	public void init(){
-		System.out.println("I'm called!");
-		
 		//get from every direction... -Larethian
 		for(Direction dir : Direction.values()){
-			TileEntity te = worldObj.getBlockTileEntity(xCoord+dir.xOffset, yCoord+dir.yOffset, zCoord+dir.zOffset);
+			TileEntity te = this.worldObj.getBlockTileEntity(this.xCoord+dir.xOffset, this.yCoord+dir.yOffset, this.zCoord+dir.zOffset);
 			
 			if(te instanceof Wire){
 				//The routing entrys and add them to our own list -Larethian
@@ -222,18 +220,23 @@ public class TileEntityWire extends TileEntity implements Wire {
 				}
 			}
 		}
-		if(routingEntries.isEmpty()) return; //early escape, preventing some calls which would consume time -Larethian
+		if(this.routingEntries.isEmpty()) return; //early escape, preventing some calls which would consume time -Larethian
 		
 		//for every RoutingEntry... -Larethian
 		for(RoutingEntry re : this.getRoutingEntrys().values()){
 			//propagate in every direction. -Larethian
 			for(Direction dir : Direction.values()){
-				TileEntity te = worldObj.getBlockTileEntity(xCoord+dir.xOffset, yCoord+dir.yOffset, zCoord+dir.zOffset);
+				TileEntity te = this.worldObj.getBlockTileEntity(this.xCoord+dir.xOffset, this.yCoord+dir.yOffset, this.zCoord+dir.zOffset);
 				
 				if(te instanceof Wire){
 					((Wire) te).updateRoutingEntry(dir, re);
 				}
 			}
 		}
+		
+		for (RoutingEntry re : routingEntries.values()) {
+			System.out.println(re);
+		}
+		System.out.println();
 	}
 }
