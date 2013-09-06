@@ -8,8 +8,7 @@ public class RoutingEntry {
 	private final double travelCost;
 	private final Direction nextHop;
 	private final double requested;
-	
-	
+
 	public RoutingEntry(Destination dest, double travelCost, Direction nextHop,
 			double requested) {
 		this.dest = dest;
@@ -18,23 +17,44 @@ public class RoutingEntry {
 		this.requested = requested;
 	}
 
-
+	/**
+	 * @return the dest
+	 */
 	public Destination getDest() {
-		return dest;
+		return this.dest;
 	}
 
-
+	/**
+	 * @return the travelCost
+	 */
 	public double getTravelCost() {
-		return travelCost;
+		return this.travelCost;
 	}
 
-
+	/**
+	 * @return the nextHop
+	 */
 	public Direction getNextHop() {
-		return nextHop;
+		return this.nextHop;
 	}
 
-
+	/**
+	 * @return the requested
+	 */
 	public double getRequested() {
-		return requested;
+		return this.requested;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "RoutingEntry [dest=" + this.dest + ", travelCost="
+				+ this.travelCost + ", nextHop=" + this.nextHop
+				+ ", requested=" + this.requested + "]";
+	}
+
 }

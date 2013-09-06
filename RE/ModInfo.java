@@ -1,5 +1,6 @@
 package RE;
 
+@SuppressWarnings("javadoc")
 public class ModInfo {
 
 	public static final String ID = "RealElectricity";
