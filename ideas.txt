@@ -1,0 +1,53 @@
+Ideas for Real Electricity
+==========================
+
+- Coal Generator
+- Wire
+- Battery Charger
+- Battery Uncharger
+- Solar Panel
+- Battery (Item)
+- Ender Battery ("Enttery") (Item)
+- Water Generator
+- Table to make a PLC ("PLC Programmer") ( sides are input/output )
+- PLC
+- Switch
+- Lamp (Item)
+- Lamp Holder
+- ...
+
+(If you have some more ideas please add them here!)
+
+Explain:
+--------
+Coal Generator:
+This generator will generate energy if he is burning coal/charcoal
+
+Wire:
+The wire will transport electricity
+
+Battery Charger:
+A battery charger will charge a battery so you can have electricity with you ( maybe for tools ? )
+
+Battery Uncharger:
+A battery uncharger will uncharge a battery so you can do stuff with the electricity
+
+Enttery:
+This battery will can be linked to an other enttery
+
+Solar Panel:
+A solar panel will generate electricity by the sun
+How higher the sun is how more electricity it makes
+
+Water Generator:
+The water generator will generate electricity if he is next to a flowing water ( if possible to program )
+and the water generator must face to the water next to the block
+
+PLC:
+With a PLC you can do logic gates
+
+Switch:
+A switch will turn a circuit of wires on/off
+
+Lamp:
+A lamp will give light if he gets energy
